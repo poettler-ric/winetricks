@@ -1,5 +1,5 @@
 Name:           winetricks
-Version:        20160709
+Version:        20160724
 Release:        1%{?dist}
 Summary:        Work around common problems in Wine
 
@@ -58,5 +58,8 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 
 
 %changelog
+* Fri Jul 29 2016 Raphael Groner <projects.rg@smart.ms> - 20160724-1
+- new version
+
 * Mon Jul 11 2016 Raphael Groner <projects.rg@smart.ms> - 20160709-1
 - initial
