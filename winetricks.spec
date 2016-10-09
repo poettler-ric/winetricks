@@ -1,11 +1,14 @@
 Name:           winetricks
-Version:        20160724
+Version:        20161005
 Release:        1%{?dist}
 Summary:        Work around common problems in Wine
 
 License:        LGPLv2+
 URL:            https://github.com/Winetricks/%{name}
 Source0:        %{url}/archive/%{version}/%{name}-%{version}.tar.gz
+# Originally uploaded by Jose Hevia for OCAL 0.18
+# https://openclipart.org/detail/107599/exec-wine
+Source1:        https://openclipart.org/download/107599/exec-wine.svg
 
 BuildArch:      noarch
 BuildRequires:  desktop-file-utils
@@ -14,6 +17,7 @@ BuildRequires:  desktop-file-utils
 Requires:       wine-common >= 1.9
 Requires:       wine-wow
 Requires:       cabextract gzip unzip wget which time
+Requires:       hicolor-icon-theme
 
 %description
 Winetricks is an easy way to work around common problems in Wine.
@@ -32,6 +36,8 @@ sed -i -e s:steam:: -e s:flash:: tests/*
 
 %install
 %make_install
+install -m0755 -d %{buildroot}%{_datadir}/icons/hicolor/scalable
+install -m0755 %{SOURCE1} %{buildroot}%{_datadir}/icons/hicolor/scalable/%{name}.svg
 install -m0755 -d %{buildroot}%{_datadir}/applications
 cat <<EOT >>%{buildroot}%{_datadir}/applications/%{name}.desktop
 [Desktop Entry]
@@ -49,15 +55,35 @@ EOT
 desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 
 
+%post
+/bin/touch --no-create %{_datadir}/icons/hicolor &>/dev/null || :
+
+%postun
+if [ $1 -eq 0 ] ; then
+    /bin/touch --no-create %{_datadir}/icons/hicolor &>/dev/null
+    /usr/bin/gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
+fi
+
+%posttrans
+/usr/bin/gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
+
+
+
 %files
-%license src/COPYING
+%license src/COPYING debian/copyright
 %doc README.md
 %{_bindir}/%{name}
 %{_mandir}/man1/%{name}.1*
+%{_datadir}/icons/hicolor/scalable/%{name}.svg
 %{_datadir}/applications/%{name}.desktop
 
 
 %changelog
+* Sun Oct 09 2016 Builder <projects.rg@smart.ms> - 20161005-1
+- new version
+- add copyright
+- add icon
+
 * Fri Jul 29 2016 Raphael Groner <projects.rg@smart.ms> - 20160724-1
 - new version
 
