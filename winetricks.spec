@@ -74,7 +74,7 @@ fi
 %doc README.md
 %{_bindir}/%{name}
 %{_mandir}/man1/%{name}.1*
-%{_datadir}/icons/hicolor/scalable/%{name}.svg
+%{_datadir}/icons/hicolor/scalable/apps/%{name}.svg
 %{_datadir}/applications/%{name}.desktop
 
 
