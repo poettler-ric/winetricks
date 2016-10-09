@@ -1,6 +1,6 @@
 Name:           winetricks
 Version:        20161005
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Work around common problems in Wine
 
 License:        LGPLv2+
@@ -36,8 +36,8 @@ sed -i -e s:steam:: -e s:flash:: tests/*
 
 %install
 %make_install
-install -m0755 -d %{buildroot}%{_datadir}/icons/hicolor/scalable
-install -m0755 %{SOURCE1} %{buildroot}%{_datadir}/icons/hicolor/scalable/%{name}.svg
+install -m0755 -d %{buildroot}%{_datadir}/icons/hicolor/scalable/apps
+install -m0755 %{SOURCE1} %{buildroot}%{_datadir}/icons/hicolor/scalable/apps/%{name}.svg
 install -m0755 -d %{buildroot}%{_datadir}/applications
 cat <<EOT >>%{buildroot}%{_datadir}/applications/%{name}.desktop
 [Desktop Entry]
@@ -79,7 +79,10 @@ fi
 
 
 %changelog
-* Sun Oct 09 2016 Builder <projects.rg@smart.ms> - 20161005-1
+* Sun Oct 09 2016 Raphael Groner <projects.rg@smart.ms> - 20161005-2
+- use apps subfolger for icon
+
+* Sun Oct 09 2016 Raphael Groner <projects.rg@smart.ms> - 20161005-1
 - new version
 - add copyright
 - add icon
