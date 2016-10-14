@@ -37,7 +37,7 @@ sed -i -e s:steam:: -e s:flash:: tests/*
 %install
 %make_install
 install -m0755 -d %{buildroot}%{_datadir}/icons/hicolor/scalable/apps
-install -m0755 %{SOURCE1} %{buildroot}%{_datadir}/icons/hicolor/scalable/apps/%{name}.svg
+install -m0644 %{SOURCE1} %{buildroot}%{_datadir}/icons/hicolor/scalable/apps/%{name}.svg
 install -m0755 -d %{buildroot}%{_datadir}/applications
 cat <<EOT >>%{buildroot}%{_datadir}/applications/%{name}.desktop
 [Desktop Entry]
