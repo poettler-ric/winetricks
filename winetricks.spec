@@ -1,6 +1,6 @@
 Name:           winetricks
-Version:        20161005
-Release:        2%{?dist}
+Version:        20161012
+Release:        1%{?dist}
 Summary:        Work around common problems in Wine
 
 License:        LGPLv2+
@@ -11,11 +11,15 @@ Source0:        %{url}/archive/%{version}/%{name}-%{version}.tar.gz
 Source1:        https://openclipart.org/download/107599/exec-wine.svg
 
 BuildArch:      noarch
+
+# need arch-specific wine, not available everywhere
+ExclusiveArch:  %{ix86} x86_64 %{arm} aarch64
+
+BuildRequires:  wine-common
 BuildRequires:  desktop-file-utils
 
 # runtime dependencies
-Requires:       wine-common >= 1.9
-Requires:       wine-wow
+Requires:       wine-common
 Requires:       cabextract gzip unzip wget which time
 Requires:       hicolor-icon-theme
 
@@ -79,6 +83,11 @@ fi
 
 
 %changelog
+* Mon Nov 07 2016 Raphael Groner <projects.rg@smart.ms> - 20161012-1
+- new version
+- disable architectures without available wine
+- don't check explicitly for wine version
+
 * Sun Oct 09 2016 Raphael Groner <projects.rg@smart.ms> - 20161005-2
 - use apps subfolger for icon
 
