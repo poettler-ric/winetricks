@@ -83,7 +83,7 @@ fi
 
 
 %changelog
-* Wed Nov 09 2016 Builder <projects.rg@smart.ms> - 20161107-1
+* Wed Nov 09 2016 Raphael Groner <projects.rg@smart.ms> - 20161107-1
 - new version
 
 * Mon Nov 07 2016 Raphael Groner <projects.rg@smart.ms> - 20161012-1
