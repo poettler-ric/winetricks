@@ -1,5 +1,5 @@
 Name:           winetricks
-Version:        20161012
+Version:        20161107
 Release:        1%{?dist}
 Summary:        Work around common problems in Wine
 
@@ -83,6 +83,9 @@ fi
 
 
 %changelog
+* Wed Nov 09 2016 Builder <projects.rg@smart.ms> - 20161107-1
+- new version
+
 * Mon Nov 07 2016 Raphael Groner <projects.rg@smart.ms> - 20161012-1
 - new version
 - disable architectures without available wine
