@@ -1,6 +1,6 @@
 Name:           winetricks
 Version:        20161107
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Work around common problems in Wine
 
 License:        LGPLv2+
@@ -12,8 +12,11 @@ Source1:        https://openclipart.org/download/107599/exec-wine.svg
 
 BuildArch:      noarch
 
-# need arch-specific wine, not available everywhere
+# need arch-specific wine, not available everywhere:
+# - adopted from wine.spec
 ExclusiveArch:  %{ix86} x86_64 %{arm} aarch64
+# - explicitly not ppc64* to hopefully not confuse koschei
+ExcludeArch:    ppc64 ppc64le
 
 BuildRequires:  wine-common
 BuildRequires:  desktop-file-utils
@@ -83,6 +86,9 @@ fi
 
 
 %changelog
+* Mon Dec 05 2016 Builder <projects.rg@smart.ms> - 20161107-2
+- add ExcludeArch
+
 * Wed Nov 09 2016 Raphael Groner <projects.rg@smart.ms> - 20161107-1
 - new version
 
