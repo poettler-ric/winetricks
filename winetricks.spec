@@ -1,14 +1,11 @@
 Name:           winetricks
-Version:        20161107
-Release:        2%{?dist}
+Version:        20170207
+Release:        1%{?dist}
 Summary:        Work around common problems in Wine
 
 License:        LGPLv2+
 URL:            https://github.com/Winetricks/%{name}
 Source0:        %{url}/archive/%{version}/%{name}-%{version}.tar.gz
-# Originally uploaded by Jose Hevia for OCAL 0.18
-# https://openclipart.org/detail/107599/exec-wine
-Source1:        https://openclipart.org/download/107599/exec-wine.svg
 
 BuildArch:      noarch
 
@@ -43,20 +40,7 @@ sed -i -e s:steam:: -e s:flash:: tests/*
 
 %install
 %make_install
-install -m0755 -d %{buildroot}%{_datadir}/icons/hicolor/scalable/apps
-install -m0644 %{SOURCE1} %{buildroot}%{_datadir}/icons/hicolor/scalable/apps/%{name}.svg
-install -m0755 -d %{buildroot}%{_datadir}/applications
-cat <<EOT >>%{buildroot}%{_datadir}/applications/%{name}.desktop
-[Desktop Entry]
-Name=Winetricks
-Comment=%{summary}
-Exec=%{_bindir}/%{name}
-Icon=%{name}
-Terminal=false
-Type=Application
-Categories=System;
-StartupNotify=true
-EOT
+
 
 %check
 desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
@@ -86,6 +70,10 @@ fi
 
 
 %changelog
+* Sat Feb 11 2017 Raphael Groner <projects.rg@smart.ms> - 20170207-1
+- new version
+- drop additional icon and desktop file in favor of upstream ones
+
 * Mon Dec 05 2016 Builder <projects.rg@smart.ms> - 20161107-2
 - add ExcludeArch
 
@@ -98,7 +86,7 @@ fi
 - don't check explicitly for wine version
 
 * Sun Oct 09 2016 Raphael Groner <projects.rg@smart.ms> - 20161005-2
-- use apps subfolger for icon
+- use apps subfolder for icon
 
 * Sun Oct 09 2016 Raphael Groner <projects.rg@smart.ms> - 20161005-1
 - new version
