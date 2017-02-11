@@ -74,6 +74,9 @@ fi
 - new version
 - drop additional icon and desktop file in favor of upstream ones
 
+* Sat Feb 11 2017 Fedora Release Engineering <releng@fedoraproject.org> - 20161107-3
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_26_Mass_Rebuild
+
 * Mon Dec 05 2016 Builder <projects.rg@smart.ms> - 20161107-2
 - add ExcludeArch
 
