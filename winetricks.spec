@@ -1,5 +1,5 @@
 Name:           winetricks
-Version:        20170207
+Version:        20170326
 Release:        1%{?dist}
 Summary:        Work around common problems in Wine
 
@@ -61,7 +61,7 @@ fi
 
 
 %files
-%license src/COPYING debian/copyright
+%license COPYING debian/copyright
 %doc README.md
 %{_bindir}/%{name}
 %{_mandir}/man1/%{name}.1*
@@ -70,6 +70,9 @@ fi
 
 
 %changelog
+* Tue Mar 28 2017 Raphael Groner <projects.rg@smart.ms> - 20170326-1
+- new version
+
 * Sat Feb 11 2017 Raphael Groner <projects.rg@smart.ms> - 20170207-1
 - new version
 - drop additional icon and desktop file in favor of upstream ones
