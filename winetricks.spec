@@ -1,5 +1,5 @@
 Name:           winetricks
-Version:        20170326
+Version:        20170517
 Release:        1%{?dist}
 Summary:        Work around common problems in Wine
 
@@ -70,6 +70,9 @@ fi
 
 
 %changelog
+* Sat Jun 10 2017 Builder <projects.rg@smart.ms> - 20170517-1
+- new version
+
 * Tue Mar 28 2017 Raphael Groner <projects.rg@smart.ms> - 20170326-1
 - new version
 
