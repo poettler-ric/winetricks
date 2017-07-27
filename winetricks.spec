@@ -1,6 +1,6 @@
 Name:           winetricks
 Version:        20170517
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Work around common problems in Wine
 
 License:        LGPLv2+
@@ -70,6 +70,9 @@ fi
 
 
 %changelog
+* Thu Jul 27 2017 Fedora Release Engineering <releng@fedoraproject.org> - 20170517-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_27_Mass_Rebuild
+
 * Sat Jun 10 2017 Builder <projects.rg@smart.ms> - 20170517-1
 - new version
 
