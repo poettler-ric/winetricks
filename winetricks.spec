@@ -93,6 +93,9 @@ fi
 * Sun Aug 13 2017 Raphael Groner <projects.rg@smart.ms> - 20170614-1
 - new version
 
+* Thu Jul 27 2017 Fedora Release Engineering <releng@fedoraproject.org> - 20170517-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_27_Mass_Rebuild
+
 * Sat Jun 10 2017 Raphael Groner <projects.rg@smart.ms> - 20170517-1
 - new version
 
