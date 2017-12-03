@@ -1,8 +1,8 @@
-%global snapshot 1
-%global commit0  43314ed7895396bfd625824d88b5e19c25f46cac
+#%global snapshot 1
+#%global commit0  43314ed7895396bfd625824d88b5e19c25f46cac
 
 Name:           winetricks
-Version:        20170731
+Version:        20171018
 Release:        1%{?dist}
 
 Summary:        Work around common problems in Wine
@@ -55,6 +55,8 @@ sed -i -e s:steam:: -e s:flash:: tests/*
 
 %install
 %make_install
+# some tarballs do not install appdata
+install -D -t %{buildroot}%{_datadir}/appdata src/%{name}.appdata.xml
 
 
 %check
@@ -74,7 +76,6 @@ fi
 /usr/bin/gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
 
-
 %files
 %license COPYING debian/copyright
 %doc README.md
@@ -86,6 +87,10 @@ fi
 
 
 %changelog
+* Sun Dec 03 2017 Raphael Groner <projects.rg@smart.ms> - 20171018-1
+- new version
+- ensure appdata gets installed
+
 * Sun Aug 13 2017 Raphael Groner <projects.rg@smart.ms> - 20170731-1
 - new snapshot
 - add appdata
