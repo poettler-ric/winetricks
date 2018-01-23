@@ -1,8 +1,9 @@
-#%global snapshot 1
-#%global commit0  43314ed7895396bfd625824d88b5e19c25f46cac
+# Uncomment these, set snapshot to 0.
+%global snapshot 0
+%global commit0  43314ed7895396bfd625824d88b5e19c25f46cac
 
 Name:           winetricks
-Version:        20171018
+Version:        20171222
 Release:        1%{?dist}
 
 Summary:        Work around common problems in Wine
@@ -28,7 +29,7 @@ BuildRequires:  desktop-file-utils
 
 # runtime dependencies
 Requires:       wine-common
-Requires:       cabextract gzip unzip wget which time
+Requires:       cabextract gzip unzip wget which
 Requires:       hicolor-icon-theme
 
 %description
@@ -37,7 +38,6 @@ Winetricks is an easy way to work around common problems in Wine.
 It has a menu of supported games/apps for which it can do all the
 workarounds automatically. It also lets you install missing DLLs
 or tweak various Wine settings individually.
-
 
 %prep
 %if 0%{?snapshot}
@@ -48,20 +48,16 @@ or tweak various Wine settings individually.
 
 sed -i -e s:steam:: -e s:flash:: tests/*
 
-
 %build
 # not needed
-
 
 %install
 %make_install
 # some tarballs do not install appdata
-install -D -t %{buildroot}%{_datadir}/appdata src/%{name}.appdata.xml
-
+install -D -t %{buildroot}%{_datadir}/metainfo src/%{name}.appdata.xml
 
 %check
 desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
-
 
 %post
 /bin/touch --no-create %{_datadir}/icons/hicolor &>/dev/null || :
@@ -83,10 +79,15 @@ fi
 %{_mandir}/man1/%{name}.1*
 %{_datadir}/icons/hicolor/scalable/apps/%{name}.svg
 %{_datadir}/applications/%{name}.desktop
-%{_datadir}/appdata/%{name}.appdata.xml
+%{_datadir}/metainfo/%{name}.appdata.xml
 
 
 %changelog
+* Mon Jan 22 2018 Ben Rosser <rosser.bjr@gmail.com> - 20171222-1
+- Updated to latest upstream release. (#1528622)
+- Moved appdata file to new appdata location, /usr/share/metainfo.
+- Removed dependency on 'time' package as per #1533795.
+
 * Sun Dec 03 2017 Raphael Groner <projects.rg@smart.ms> - 20171018-1
 - new version
 - ensure appdata gets installed
