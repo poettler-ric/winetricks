@@ -4,7 +4,7 @@
 
 Name:           winetricks
 Version:        20171222
-Release:        1%{?dist}
+Release:        2%{?dist}
 
 Summary:        Work around common problems in Wine
 
@@ -83,6 +83,9 @@ fi
 
 
 %changelog
+* Fri Feb 09 2018 Fedora Release Engineering <releng@fedoraproject.org> - 20171222-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_28_Mass_Rebuild
+
 * Mon Jan 22 2018 Ben Rosser <rosser.bjr@gmail.com> - 20171222-1
 - Updated to latest upstream release. (#1528622)
 - Moved appdata file to new appdata location, /usr/share/metainfo.
