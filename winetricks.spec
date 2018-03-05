@@ -39,6 +39,7 @@ It has a menu of supported games/apps for which it can do all the
 workarounds automatically. It also lets you install missing DLLs
 or tweak various Wine settings individually.
 
+
 %prep
 %if 0%{?snapshot}
 %setup -qn%{name}-%{commit0}
