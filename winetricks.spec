@@ -1,8 +1,8 @@
-#%global snapshot 1
-#%global commit0  43314ed7895396bfd625824d88b5e19c25f46cac
+#%%global snapshot 1
+#%%global commit0  43314ed7895396bfd625824d88b5e19c25f46cac
 
 Name:           winetricks
-Version:        20171018
+Version:        20180217
 Release:        1%{?dist}
 
 Summary:        Work around common problems in Wine
@@ -63,19 +63,6 @@ install -D -t %{buildroot}%{_datadir}/appdata src/%{name}.appdata.xml
 desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 
 
-%post
-/bin/touch --no-create %{_datadir}/icons/hicolor &>/dev/null || :
-
-%postun
-if [ $1 -eq 0 ] ; then
-    /bin/touch --no-create %{_datadir}/icons/hicolor &>/dev/null
-    /usr/bin/gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
-fi
-
-%posttrans
-/usr/bin/gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
-
-
 %files
 %license COPYING debian/copyright
 %doc README.md
@@ -83,10 +70,16 @@ fi
 %{_mandir}/man1/%{name}.1*
 %{_datadir}/icons/hicolor/scalable/apps/%{name}.svg
 %{_datadir}/applications/%{name}.desktop
-%{_datadir}/appdata/%{name}.appdata.xml
+%{_datadir}/metainfo/%{name}.appdata.xml
+%exclude %{_datadir}/appdata/%{name}.appdata.xml
 
 
 %changelog
+* Mon Mar 05 2018 Raphael Groner <projects.rg@smart.ms> - 20180217-1
+- new version
+- drop obsolete scriptlets
+- move appdata into mimeinfo
+
 * Sun Dec 03 2017 Raphael Groner <projects.rg@smart.ms> - 20171018-1
 - new version
 - ensure appdata gets installed
