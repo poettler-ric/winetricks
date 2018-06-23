@@ -3,7 +3,7 @@
 %global commit0  43314ed7895396bfd625824d88b5e19c25f46cac
 
 Name:           winetricks
-Version:        20180217
+Version:        20180603
 Release:        1%{?dist}
 
 Summary:        Work around common problems in Wine
@@ -73,6 +73,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 
 
 %changelog
+* Sat Jun 23 2018 Raphael Groner <projects.rg@smart.ms> - 20180603-1
+- new version
+
 * Mon Mar 05 2018 Raphael Groner <projects.rg@smart.ms> - 20180217-1
 - new version
 - drop obsolete scriptlets
