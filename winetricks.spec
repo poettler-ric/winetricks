@@ -4,7 +4,7 @@
 
 Name:           winetricks
 Version:        20180603
-Release:        1%{?dist}
+Release:        2%{?dist}
 
 Summary:        Work around common problems in Wine
 
@@ -55,7 +55,7 @@ sed -i -e s:steam:: -e s:flash:: tests/*
 %install
 %make_install
 # some tarballs do not install appdata
-install -D -t %{buildroot}%{_datadir}/metainfo src/%{name}.appdata.xml
+install -m0644 -D -t %{buildroot}%{_datadir}/metainfo src/%{name}.appdata.xml
 
 %check
 desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
@@ -73,6 +73,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 
 
 %changelog
+* Sun Jul 01 2018 Raphael Groner <projects.rg@smart.ms> - 20180603-2
+- avoid shebang warning of rpmlint for appdata
+
 * Sat Jun 23 2018 Raphael Groner <projects.rg@smart.ms> - 20180603-1
 - new version
 
