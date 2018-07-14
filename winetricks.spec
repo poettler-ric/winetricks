@@ -4,7 +4,7 @@
 
 Name:           winetricks
 Version:        20180603
-Release:        2%{?dist}
+Release:        3%{?dist}
 
 Summary:        Work around common problems in Wine
 
@@ -73,6 +73,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 
 
 %changelog
+* Sat Jul 14 2018 Fedora Release Engineering <releng@fedoraproject.org> - 20180603-3
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_29_Mass_Rebuild
+
 * Sun Jul 01 2018 Raphael Groner <projects.rg@smart.ms> - 20180603-2
 - avoid shebang warning of rpmlint for appdata
 
