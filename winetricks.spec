@@ -4,7 +4,7 @@
 
 Name:           winetricks
 Version:        20181203
-Release:        2%{?dist}
+Release:        3%{?dist}
 
 Summary:        Work around common problems in Wine
 
@@ -73,6 +73,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 
 
 %changelog
+* Sun Feb 03 2019 Fedora Release Engineering <releng@fedoraproject.org> - 20181203-3
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_30_Mass_Rebuild
+
 * Sun Jan 20 2019 Ernestas Kulik <ekulik@redhat.com> - 20181203-2
 - Drop old path appdata exclude
 - Add bash completions
