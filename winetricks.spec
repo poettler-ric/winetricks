@@ -27,7 +27,6 @@ ExcludeArch:    ppc64 ppc64le
 BuildRequires:  wine-common
 BuildRequires:  desktop-file-utils
 
-Requires:       wine-common
 Requires:       cabextract gzip unzip wget which
 Requires:       hicolor-icon-theme
 Requires:       (kdialog if kdialog else zenity)
